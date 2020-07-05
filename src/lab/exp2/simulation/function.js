@@ -268,7 +268,7 @@ window.view = {
 		document.getElementById('functionSquare').innerHTML += 'float area_sq (float a)<br>{<br> &emsp; float area = a*a;<br>&emsp; return area;<br>}'
 	},
 	displayFunctionForRectangle: function() {
-		document.getElementById('functionRectangle').innerHTML += 'float area_rect (float a,float b)<br>{<br> &emsp; float area = a*b;<br> &emsp; return area;<br>}'
+		document.getElementById('functionRectangle').innerHTML += 'float area_right-angledtriangle (float a,float b)<br>{<br> &emsp; float area =( 0.5*a*b);<br> &emsp; return area;<br>}'
 	},
 	displayFunctionForTriangle: function() {
 		document.getElementById('functionTriangle').innerHTML += 'float area_triangle (float a)<br>{<br>&emsp;float area = (sqrt(3)/4.0)*a*a;<br>&emsp;return area;<br>}'
@@ -319,7 +319,7 @@ window.view = {
 		this.correctInputs ++
 	},
 	area_rect: function( param, functionCall ) {
-		this.area = Number(param[0]) * Number(param[1])
+		this.area =  0.5*Number(param[0]) * Number(param[1])
 		this.totalArea += this.area
 		alert( 'area from function call ' + String( i + 1 ) + ' ) : ' + functionCall + ' is ' + this.area )
 		this.correctInputs ++
