@@ -56,7 +56,7 @@ window.view = {
 		var userInput = this.getArraySize()
 		if( isNaN( userInput ) === false ) {
 			if( userInput !== 0 ) {
-				var element = document.getElementById('inputButtonRadio')
+			var element = document.getElementById('inputButtonRadio')
 				element.className = 'show, radioButtonDivision'
 				this.disableButton('btnOk')
 				this.changeClass( 'btnOk', 'okButton buttonDisable' )
@@ -69,12 +69,15 @@ window.view = {
 		else
 			alert( 'Size of the array must be an Integer !' )
 	},
-	generateRandomNumbers: function() {
+	generateRandomNumbers: function() 
+	{
 		var inputValue = this.getArraySize()
-		for ( i = 0 ; i < inputValue ; i++ ) {
+		for ( i = 0 ; i < inputValue ; i++ )
+		{
 			var random = Math.floor(Math.random()*15)
 			this.numbers.push(String(random))
-		}
+                        
+                }
 	},
 	getUserInput: function() {
 		var inputValue = document.getElementById('userInput').value
@@ -84,9 +87,17 @@ window.view = {
 	takeInputFromRadioBox: function() {
 		var element = document.getElementsByName('radio_group')
 		if ( element[0].checked )
-			this.generateRandomNumbers()
+		{
+
+                         this.generateRandomNumbers()
+			 //document.getElementById('btnManual').disabled = true
+			 document.getElementById('userInput').disabled = true
+		}
 		else if (element[1].checked)
+		{
 			this.getUserInput()
+		}
+
 	},
 	createBoxes: function() {
 		for ( i = 0 ; i < this.numbers.length ; i++ ) {
@@ -109,11 +120,11 @@ window.view = {
 		if ( element.length > 0 )
 			document.getElementById('sortingDiv').removeChild(element[0])
 	},
-	createImage: function(left, top) {
+	createImage: function(left,top) {
 		var image = document.createElement('img')
 		image.style.position = 'absolute'
 		image.style.left = left + 'px'
-		image.style.top = top  + 'px'
+		image.style.top= top + 'px'
 		image.style.opacity = '0.7'
         image.className = 'arrowImage'
 		document.getElementById('sortingDiv').appendChild(image)
@@ -149,13 +160,13 @@ window.view = {
 			this.numbers[i] = Number(this.numbers[i])
 	},
 	displayElements: function() {
-		this.takeInputFromRadioBox()
-		var arraySize = this.getArraySize()
-		var isValidInput = this.validateUserInputs()
-		if ( arraySize === this.numbers.length ) {	
-			if ( isValidInput === false)
+                          this.takeInputFromRadioBox()		
+		          var arraySize = this.getArraySize()
+		          var isValidInput = this.validateUserInputs()
+		           if ( arraySize === this.numbers.length ) {	
+			        if ( isValidInput === false)
 				alert('Enter Numeric Values Only!')
-			else {
+	        		else {
 				this.createBoxes()
 				this.showCode()
 				this.convertFromStringToNumber()
@@ -167,7 +178,7 @@ window.view = {
 			} 
 		}
 		else
-			alert('number of inputs must be equal to the size of the array')	
+	             alert('number of inputs must be equal to the size of the array')	
 	},
 	setKey: function() {
 		var element = document.getElementById('sortingDiv').childNodes
